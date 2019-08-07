@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.enlamesa.back.model.User;
 import com.enlamesa.back.repository.UserRepository;
+import com.enlamesa.back.service.UserService;
 
 
 @RestController
@@ -31,25 +32,29 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private UserService userService;
+	
+	
 	@RequestMapping(method= RequestMethod.GET)
 	public List<User> getUsers(){
-		return userRepository.findAll();
+		return userService.getUsers();
 	}
 	
 	@RequestMapping(method= RequestMethod.POST)
-	public void addUser(@RequestBody User user) {
-		userRepository.save(user);
+	public User addUser(@RequestBody User user) {
+		return userService.createUser(user);
 	}
 	
 	@RequestMapping(method= RequestMethod.PUT)
-	public void editUser(@RequestBody User user) {
-		userRepository.save(user);
+	public User updateUser(@RequestBody User user) {
+		return userService.updateUser(user);
 	}
 	
 	
 	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
 	public void deleteUser(@PathVariable("id")Integer id) {
-		userRepository.deleteById(id);
+		userService.deleteUser(id);
 	}
 
 }

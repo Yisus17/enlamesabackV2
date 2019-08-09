@@ -18,43 +18,43 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.enlamesa.back.model.User;
-import com.enlamesa.back.repository.UserRepository;
-import com.enlamesa.back.service.UserService;
+import com.enlamesa.back.model.Usuario;
+import com.enlamesa.back.repository.UsuarioRepository;
+import com.enlamesa.back.service.UsuarioService;
 
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UsuarioController {
 
-	private static Logger LOG = LoggerFactory.getLogger(UserController.class);
+	private static Logger LOG = LoggerFactory.getLogger(UsuarioController.class);
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UsuarioRepository usuarioRepository;
 	
 	@Autowired
-	private UserService userService;
+	private UsuarioService usuarioService;
 	
 	
 	@RequestMapping(method= RequestMethod.GET)
-	public List<User> getUsers(){
-		return userService.getUsers();
+	public List<Usuario> getUsuarios(){
+		return usuarioService.getUsuarios();
 	}
 	
 	@RequestMapping(method= RequestMethod.POST)
-	public User addUser(@RequestBody User user) {
-		return userService.createUser(user);
+	public Usuario addUsuario(@RequestBody Usuario user) {
+		return usuarioService.createUsuario(user);
 	}
 	
 	@RequestMapping(method= RequestMethod.PUT)
-	public User updateUser(@RequestBody User user) {
-		return userService.updateUser(user);
+	public Usuario updateUsuario(@RequestBody Usuario user) {
+		return usuarioService.updateUsuario(user);
 	}
 	
 	
 	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
-	public void deleteUser(@PathVariable("id")Integer id) {
-		userService.deleteUser(id);
+	public void deleteUsuario(@PathVariable("id")Integer id) {
+		usuarioService.deleteUsuario(id);
 	}
 
 }

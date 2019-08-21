@@ -7,11 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario {
+public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idUsuario;
+	 @GeneratedValue(strategy = GenerationType.AUTO)
+	private int idUser;
 	
 	@Column(name="username")
 	private String username;
@@ -19,12 +19,13 @@ public class Usuario {
 	@Column(name="password")
 	private String password;
 	
-		
-	public int getIdUsuario() {
-		return idUsuario;
+	
+	
+	public int getIdUser() {
+		return idUser;
 	}
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 	public String getUsername() {
 		return username;

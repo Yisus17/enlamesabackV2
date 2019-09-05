@@ -8,7 +8,7 @@ public interface UserService {
 
 	List<User> getUsers();
 
-	User createUser(User user);
+	User createUser(User user) throws Exception;
 
 	User updateUser(User user);
 	

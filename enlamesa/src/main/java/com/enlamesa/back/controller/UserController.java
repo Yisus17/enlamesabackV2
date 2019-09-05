@@ -42,7 +42,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(method= RequestMethod.POST)
-	public User addUser(@RequestBody User user) {
+	public User addUser(@RequestBody User user) throws Exception {
 		return userService.createUser(user);
 	}
 	

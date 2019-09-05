@@ -10,15 +10,15 @@ import javax.persistence.Id;
 public class User {
 
 	@Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idUser;
 	
-	@Column(name="username")
+	
+	@Column(name="username", unique = true)
 	private String username;
 	
 	@Column(name="password")
 	private String password;
-	
 	
 	
 	public int getIdUser() {

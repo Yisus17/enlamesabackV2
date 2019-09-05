@@ -22,10 +22,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User createUser(User user) {
-		return userRepository.save(user);
+	public User createUser(User user) throws Exception {
+		if(!usernameExist(user)) {
+			 return userRepository.save(user);
+		}else {
+			throw new Exception("Duplicate username"); 
+		}
 	}
-	
+
 	@Override
 	public User updateUser(User user) {
 		int idUser = user.getIdUser();
@@ -47,6 +51,15 @@ public class UserServiceImpl implements UserService {
 		if(userRepository.existsById(idUser)) {
 			userRepository.deleteById(idUser);
 		}
+	}
+	
+	
+	private boolean usernameExist(User user) {
+		User userAux = userRepository.findByUsername(user.getUsername());
+		if(userAux.getUsername().equals(user.getUsername())) {
+			return true;
+		}
+		return false;
 	}
 	
 	

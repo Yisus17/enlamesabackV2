@@ -21,7 +21,7 @@ public class EnlamesaApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception{		
-		LOG.info("Hola mundo");
+		LOG.info("|---- En La Mesa API INICIADA----| ");
 	}
 
 }

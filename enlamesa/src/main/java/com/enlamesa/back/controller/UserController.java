@@ -29,8 +29,6 @@ public class UserController {
 
 	private static Logger LOG = LoggerFactory.getLogger(UserController.class);
 	
-	@Autowired
-	private UserRepository userRepository;
 	
 	@Autowired
 	private UserService userService;
